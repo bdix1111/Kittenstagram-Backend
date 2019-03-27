@@ -12,5 +12,11 @@ class Api::V1::PostsController < ApplicationController
     render json: @post
   end
 
+  def create
+    @post = Post.create(name: params['name'], caption: params['caption'], media: params['media'])
+
+    render json: @post
+  end
+
 
 end

@@ -13,12 +13,4 @@ class PostSerializer < ActiveModel::Serializer
     # return rails_representation_url(variant, only_path: true)
   end
 
-  # def media
-  #   if object.media.attached?
-  #     {
-  #       url: rails_blob_url(object.media),
-  #       # signed_id: object.photo.signed_id
-  #     }
-  #   end
-  # end
 end

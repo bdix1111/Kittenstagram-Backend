@@ -7,10 +7,9 @@ class PostSerializer < ActiveModel::Serializer
   has_many :comments
 
   def media_url
-    rails_blob_path(object.media, only_path: true) if object.media.attached?
     # variant = object.media.variant(resize: "100x100")
+    rails_blob_path(object.media, only_path: true) if object.media.attached?
     # return rails_blob_path(object.media, only_path: true)
-    # return rails_representation_url(variant, only_path: true)
   end
 
 end

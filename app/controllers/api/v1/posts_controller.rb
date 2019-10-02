@@ -1,7 +1,8 @@
 class Api::V1::PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    # byebug
+    @posts = Post.all.with_attached_media
 
     render json: @posts
   end
@@ -13,9 +14,17 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(name: params['name'], caption: params['caption'], media: params['media'])
+    # byebug
+    @post = Post.create(post_params)
+    # byebug
 
     render json: @post
+  end
+
+  private
+
+  def post_params
+    params.permit(:name, :caption, :media)
   end
 
 
